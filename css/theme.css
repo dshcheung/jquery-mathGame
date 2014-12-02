@@ -1,27 +1,32 @@
 body {
   background-color: #dddddd;
 }
-.g-row,
-.c-row,
-.q-row,
-.a-row {
+.title-row,
+.rt-row,
+.question-row,
+.answer-row,
+.setting-row {
   text-align: center;
+  margin-bottom: 10px;
 }
-.c-s-block,
-.c-rt-block {
+.title-block,
+.rt-block,
+.question-block,
+.answer-block,
+.setting-block {
   background-color: white;
-  height: 200px;
 }
-.c-s-checklist {
+.setting-checklist {
   text-align: left;
 }
-.c-s-checklist ul li{
+.setting-checklist ul li {
   list-style-type: none;
+  padding: 0;
 }
-.c-s-slider {
+.setting-slider {
   padding-bottom: 20px;
   text-align: center;
 }
-.c-s-slider div input#amount {
+.setting-slider div input#amount {
   width: 40px;
 }
