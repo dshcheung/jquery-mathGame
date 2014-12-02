@@ -15,6 +15,7 @@ body {
 .answer-block,
 .setting-block {
   background-color: white;
+  padding: 10px;
 }
 .setting-checklist {
   text-align: left;
@@ -29,4 +30,8 @@ body {
 }
 .setting-slider div input#amount {
   width: 40px;
+}
+
+.answer-block div input#answer-input-field {
+  width: 100px;
 }

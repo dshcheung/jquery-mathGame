@@ -33,7 +33,7 @@
   <div class="container-fluid content-body">
     <!-- title-row S -->
     <div class="title-row row">
-      <div class="title-block col-xs-offset-3 col-xs-6">
+      <div class="title-block col-xs-offset-1 col-xs-10">
         <h1>10 Second of Death</h1>
       </div>
     </div>
@@ -41,12 +41,22 @@
 
     <!-- rt-row S -->
     <div class="rt-row row">
-      <div class="rt-block col-xs-offset-3 col-xs-6">
-        <div>
-          <h1 class="rt-title">Results/Timer</h1>
+      <div class="rt-block col-xs-offset-1 col-xs-10">
+        <div class="timer-block">
+          <div>
+            <h1 class="timer-title">Timer</h1>
+          </div>
+          <div>
+            <h1 class="timer-counter">10</h1>
+          </div>
         </div>
-        <div>
-          <h1 class="rt-timer">10</h1>
+        <div class="result-block">
+          <div>
+            <h1 class="result-title">Result</h1>
+          </div>
+          <div>
+            <h1 class="result-content">You are number 1 in ladder</h1>
+          </div>
         </div>
       </div>
     </div>
@@ -54,28 +64,28 @@
 
     <!-- question-row S -->
     <div class="question-row row">
-      <div class="question-block col-xs-offset-3 col-xs-6">
-        <h1 id="question">Question</h1>
+      <div class="question-block col-xs-offset-1 col-xs-10">
+        <h1 id="question" data-equation="5*5">5 x 5</h1>
       </div>
     </div>
     <!-- question-row C -->
 
     <!-- answer-row S -->
     <div class="answer-row row">
-      <div class="answer-block col-xs-offset-3 col-xs-6">
-        <div>
+      <div class="answer-block col-xs-offset-1 col-xs-10">
+        <div class="answer-input-block">
           <label>Ansewer</label>
-          <input type="text">
+          <input id="answer-input-field" type="text">
         </div>
         <div>
-          <button class="answer-start-button btn btn-primary">Start</button>
+          <button id="answer-start-button" class="btn btn-primary">Start</button>
         </div>
       </div>
     </div>
     <!-- answer-row C -->
     <!-- s-row S -->
     <div class="setting-row row">
-      <div class="setting-block col-xs-offset-3 col-xs-6">
+      <div class="setting-block col-xs-offset-1 col-xs-10">
         <div class="setting-title">
           <h1 class="setting-title">Settings</h1>
         </div>
@@ -89,27 +99,27 @@
         <div class="setting-checklist">
           <ul>
             <li class="col-xs-6">
-              <input class="" type="checkbox">+
+              <input id="setting-addition" type="checkbox">+
               <span>Addition</span>
             </li>
             <li class="col-xs-6">
-              <input class="" type="checkbox">x
+              <input id="setting-multiplication" type="checkbox">x
               <span>Multiplication</span>
             </li>
             <li class="col-xs-6">
-              <input class="" type="checkbox">-
+              <input id="setting-subtraction" type="checkbox">-
               <span>Subtraction</span>
             </li>
             <li class="col-xs-6">
-              <input class="" type="checkbox">÷
+              <input id="setting-division" type="checkbox">÷
               <span>Division</span>
             </li>
             <li class="col-xs-6">
-              <input class="" type="checkbox">x²
+              <input id="setting-square" type="checkbox">x²
               <span>Powers</span>
             </li>
             <li class="col-xs-6">
-              <input class="" type="checkbox">√x
+              <input id="setting-square-root" type="checkbox">√x
               <span>Square roots</span>
             </li>
           </ul>
