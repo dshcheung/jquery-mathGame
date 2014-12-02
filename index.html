@@ -6,26 +6,111 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="10 Seconds of Death">
+  <meta name="author" content="Denis">
   <link rel="icon" href="images/skull.png">
   <title>10 Seconds of Death</title>
 
+  <!-- jQuery Library-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <!-- jQuery UI Library-->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+
+  <!-- Bootstrap Library -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Custom js -->
+  <script src="js/application.js"></script>
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" type="text/css" href="css/theme.css">
 </head>
 
 <body>
-
-
-
-
-
-
-  <!-- Scripts -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  <script src="js/application.js"></script>
+  <div class="container-fluid">
+    <!-- g-row S -->
+    <div class="row g-row">
+      <div class="col-xs-12">
+        <h1 class="g-title">10 Second of Death</h1>
+      </div>
+    </div>
+    <!-- g-row C -->
+    <!-- c-row S -->
+    <div class="row c-row">
+      <!-- c-s-block S -->
+      <div class="col-xs-5 col-xs-offset-1 c-s-block">
+        <div class="c-s-title">
+          <h1 class="s-title">Settings</h1>
+        </div>
+        <div class="c-s-slider">
+          <div>
+            <label for="amount">Maximum Number:</label>
+            <input type="text" id="amount" readonly style="border:0; color:#f6931f;">
+          </div>
+          <div id="c-s-slider"></div>
+        </div>
+        <div class="c-s-checklist">
+          <ul>
+            <li class="col-xs-6">
+              <input class="" type="checkbox">+
+              <span>Addition</span>
+            </li>
+            <li class="col-xs-6">
+              <input class="" type="checkbox">x
+              <span>Multiplication</span>
+            </li>
+            <li class="col-xs-6">
+              <input class="" type="checkbox">-
+              <span>Subtraction</span>
+            </li>
+            <li class="col-xs-6">
+              <input class="" type="checkbox">÷
+              <span>Division</span>
+            </li>
+            <li class="col-xs-6">
+              <input class="" type="checkbox">x²
+              <span>Powers</span>
+            </li>
+            <li class="col-xs-6">
+              <input class="" type="checkbox">√x
+              <span>Square roots</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- c-s-block C -->
+      <!-- c-rt-block S -->
+      <div class="c-rt-block col-xs-5">
+        <div>
+          <h1 class="rt-title">Results/Timer</h1>
+        </div>
+        <div>
+          <h1>10</h1>
+        </div>
+      </div>
+      <!-- c-rt-block C -->
+    </div>
+    <!-- c-row C -->
+    <!-- q-row S -->
+    <div class="q-row row">
+      <h1 id="question">Question</h1>
+    </div>
+    <!-- q-row C -->
+    <!-- a-row S -->
+    <div class="a-row row">
+      <div>
+        <label>Ansewer</label>
+        <input type="text">
+      </div>
+      <div>
+        <button class="btn btn-primary">Start</button>
+      </div>
+    </div>
+    <!-- a-row C -->
+  </div>
 </body>
 
 </html>

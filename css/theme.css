@@ -1,0 +1,27 @@
+body {
+  background-color: #dddddd;
+}
+.g-row,
+.c-row,
+.q-row,
+.a-row {
+  text-align: center;
+}
+.c-s-block,
+.c-rt-block {
+  background-color: white;
+  height: 200px;
+}
+.c-s-checklist {
+  text-align: left;
+}
+.c-s-checklist ul li{
+  list-style-type: none;
+}
+.c-s-slider {
+  padding-bottom: 20px;
+  text-align: center;
+}
+.c-s-slider div input#amount {
+  width: 40px;
+}
