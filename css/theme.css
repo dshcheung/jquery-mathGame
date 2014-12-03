@@ -1,10 +1,10 @@
 body {
-  background-color: #dddddd;
+  background-color: black;
+  color: white;
 }
 .title-row,
 .rt-row,
-.question-row,
-.answer-row,
+.qa-row,
 .setting-row {
   text-align: center;
   margin-bottom: 10px;
@@ -14,7 +14,7 @@ body {
 .question-block,
 .answer-block,
 .setting-block {
-  background-color: white;
+  background-color: black;
   padding: 10px;
 }
 .setting-checklist {
@@ -32,6 +32,16 @@ body {
   width: 40px;
 }
 
+.qa-row {
+  height: 135px;
+}
+.question-block {
+  height: 89px; 
+}
 .answer-block div input#answer-input-field {
+  text-align: center;
   width: 100px;
+  background-color: black;
+  border: 0;
+  border-bottom: 2px solid white;
 }

@@ -1,12 +1,13 @@
 // Global Variable
-var timeLeft;
-var setTimer;
-var startInterval;
-var stopInterval;
-var settingAll;
-var settingFunction;
-var questionAnswer;
-var userPoints;
+var timeLeft; // integer
+var timePassed; // integer
+var setTimer; // setInterval function
+var startInterval; // function
+var stopInterval; // function
+var settingAll; // object
+var settingFunction; // array of enabled functions
+var questionAnswer; // object
+var userPoints; // integer
 
 $(document).ready( // Document Ready S
   function() {
@@ -23,7 +24,7 @@ $(document).ready( // Document Ready S
       $("#amount").val($("#setting-slider").slider("value"));
     }; // Create Slider C
 
-    { // declear startInterval and stopInterval
+    { // Declear startInterval and stopInterval
       startInterval = function() {
         setTimer = setInterval(function() {
           if (timeLeft == 0) {
@@ -32,12 +33,13 @@ $(document).ready( // Document Ready S
             hideAnswerField(true);
             hideTimer(true);
             hideResult(false);
-            // get result.json 
-            // calculate position
+            postResult();
+            // push result
+            // get result 
             // display result to result-content
           }
-          console.log(timeLeft);
           $('.timer-counter').html(timeLeft);
+          timePassed++;
           timeLeft--;
         }, 1000);
       };
@@ -48,25 +50,32 @@ $(document).ready( // Document Ready S
 
     { // Start Button / Restart Button
       $("#answer-start-button").on("click", function() {
+        userPoints = 0;
+        timePassed = 0;
         timeLeft = 10;
         getSettings();
         genQuestion();
+        postQuestion();
         hideButton(true);
         hideAnswerField(false);
+        hideTimer(false);
+        hideResult(true);
         startInterval();
+        $("#answer-input-field").focus();
       });
     }
 
     // Keyup answer
     $("#answer-input-field").on("keyup", function() {
-      // if input == questionAnswer.dataAnswer 
-      stopInterval()
-      userPoints++
-      timeLeft++
-      genQuestion()
-        // postData()
-        // postQuestion()
-      startInterval()
+      if ($("#answer-input-field").val() == questionAnswer.dataAnswer) {
+        $("#answer-input-field").val("");
+        stopInterval();
+        userPoints++;
+        timeLeft++;
+        genQuestion();
+        postQuestion();
+        startInterval();
+      }
     })
   }
 );
@@ -172,4 +181,27 @@ $(document).ready( // Document Ready S
       $(".answer-input-block").removeClass("hide");
     }
   };
+  var hideTimer = function(boolean) {
+    if (boolean) {
+      $(".timer-block").addClass("hide");
+    } else {
+      $(".timer-block").removeClass("hide");
+    }
+  };
+  var hideResult = function(boolean) {
+    if (boolean) {
+      $(".result-block").addClass("hide");
+    } else {
+      $(".result-block").removeClass("hide");
+    }
+  };
 } // Hidding Stuff C
+
+{ // Posting Stuff S
+  var postQuestion = function() {
+    $("#question").html(questionAnswer.userQuestion);
+  };
+  var postResult = function() {
+    $(".result-content").html("You answered " + userPoints + " questions in " + timePassed + " seconds.\n" + "You are the top x%");
+  };
+} // Posting Stuff C

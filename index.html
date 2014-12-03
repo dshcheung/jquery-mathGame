@@ -50,42 +50,36 @@
             <h1 class="timer-counter">10</h1>
           </div>
         </div>
-        <div class="result-block">
+        <div class="result-block hide">
           <div>
             <h1 class="result-title">Result</h1>
           </div>
           <div>
-            <h1 class="result-content">You are number 1 in ladder</h1>
+            <h1 class="result-content"></h1>
           </div>
         </div>
       </div>
     </div>
     <!-- rt-row C -->
 
-    <!-- question-row S -->
-    <div class="question-row row">
+    <!-- qa-row S -->
+    <div class="qa-row row">
       <div class="question-block col-xs-offset-1 col-xs-10">
         <h1 id="question"></h1>
       </div>
-    </div>
-    <!-- question-row C -->
-
-    <!-- answer-row S -->
-    <div class="answer-row row">
       <div class="answer-block col-xs-offset-1 col-xs-10">
         <div class="answer-input-block hide">
-          <label>Answer:</label>
-          <input id="answer-input-field" type="text">
+          <input id="answer-input-field" type="text" placeholder="Answer">
         </div>
         <div class="answer-button-block">
           <button id="answer-start-button" class="btn btn-primary">Start</button>
         </div>
       </div>
     </div>
-    <!-- answer-row C -->
+    <!-- qa-row C -->
     <!-- s-row S -->
     <div class="setting-row row">
-      <div class="setting-block col-xs-offset-1 col-xs-10">
+      <div class="setting-block col-xs-offset-2 col-xs-8">
         <div class="setting-title">
           <h1 class="setting-title">Settings</h1>
         </div>
@@ -98,29 +92,29 @@
         </div>
         <div class="setting-checklist">
           <ul class="setting-checkbox">
-            <li class="col-xs-6">
-              <input id="setting-addition" type="checkbox" checked="checked">+
-              <span>Addition</span>
+            <li class="col-xs-3">
+              <input id="setting-addition" type="checkbox" checked="checked"> +
+              <span class="hidden-xs">Addition</span>
             </li>
-            <li class="col-xs-6">
-              <input id="setting-multiplication" type="checkbox">x
-              <span>Multiplication</span>
+            <li class="col-xs-3">
+              <input id="setting-multiplication" type="checkbox"> x
+              <span class="hidden-xs">Multiplication</span>
             </li>
-            <li class="col-xs-6">
-              <input id="setting-subtraction" type="checkbox">-
-              <span>Subtraction</span>
+            <li class="col-xs-3">
+              <input id="setting-subtraction" type="checkbox"> -
+              <span class="hidden-xs">Subtraction</span>
             </li>
-            <li class="col-xs-6">
-              <input id="setting-division" type="checkbox">÷
-              <span>Division</span>
+            <li class="col-xs-3">
+              <input id="setting-division" type="checkbox"> ÷
+              <span class="hidden-xs">Division</span>
             </li>
-            <li class="col-xs-6">
-              <input id="setting-square" type="checkbox">x²
-              <span>Powers</span>
+            <li class="col-xs-3 col-xs-offset-3">
+              <input id="setting-square" type="checkbox"> x²
+              <span class="hidden-xs">Powers</span>
             </li>
-            <li class="col-xs-6">
-              <input id="setting-square-root" type="checkbox">√x
-              <span>Square roots</span>
+            <li class="col-xs-3">
+              <input id="setting-square-root" type="checkbox"> √x
+              <span class="hidden-xs">Square roots</span>
             </li>
           </ul>
         </div>
