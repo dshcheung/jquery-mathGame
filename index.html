@@ -65,7 +65,7 @@
     <!-- question-row S -->
     <div class="question-row row">
       <div class="question-block col-xs-offset-1 col-xs-10">
-        <h1 id="question" data-equation="5*5">5 x 5</h1>
+        <h1 id="question"></h1>
       </div>
     </div>
     <!-- question-row C -->
@@ -73,11 +73,11 @@
     <!-- answer-row S -->
     <div class="answer-row row">
       <div class="answer-block col-xs-offset-1 col-xs-10">
-        <div class="answer-input-block">
-          <label>Ansewer</label>
+        <div class="answer-input-block hide">
+          <label>Answer:</label>
           <input id="answer-input-field" type="text">
         </div>
-        <div>
+        <div class="answer-button-block">
           <button id="answer-start-button" class="btn btn-primary">Start</button>
         </div>
       </div>
@@ -97,9 +97,9 @@
           <div id="setting-slider"></div>
         </div>
         <div class="setting-checklist">
-          <ul>
+          <ul class="setting-checkbox">
             <li class="col-xs-6">
-              <input id="setting-addition" type="checkbox">+
+              <input id="setting-addition" type="checkbox" checked="checked">+
               <span>Addition</span>
             </li>
             <li class="col-xs-6">
