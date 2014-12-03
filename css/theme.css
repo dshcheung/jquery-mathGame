@@ -31,12 +31,14 @@ body {
 .setting-slider div input#amount {
   width: 40px;
 }
-
+.rt-row {
+  height: 148px;
+}
 .qa-row {
   height: 135px;
 }
 .question-block {
-  height: 89px; 
+  height: 89px;
 }
 .answer-block div input#answer-input-field {
   text-align: center;
@@ -45,3 +47,14 @@ body {
   border: 0;
   border-bottom: 2px solid white;
 }
+@media (max-width: 855px) {
+  h1 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 715px){
+  h1 {
+    font-size: 25px;
+  }
+}
+

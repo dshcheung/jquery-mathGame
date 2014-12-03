@@ -60,6 +60,7 @@ $(document).ready( // Document Ready S
         hideAnswerField(false);
         hideTimer(false);
         hideResult(true);
+        hideReady(true);
         startInterval();
         $("#answer-input-field").focus();
       });
@@ -69,6 +70,8 @@ $(document).ready( // Document Ready S
     $("#answer-input-field").on("keyup", function() {
       if ($("#answer-input-field").val() == questionAnswer.dataAnswer) {
         $("#answer-input-field").val("");
+        $("#dingding")[0].load();
+        $("#dingding")[0].play();
         stopInterval();
         userPoints++;
         timeLeft++;
@@ -195,6 +198,13 @@ $(document).ready( // Document Ready S
       $(".result-block").removeClass("hide");
     }
   };
+  var hideReady = function(boolean) {
+    if (boolean) {
+      $(".ready-block").addClass("hide");
+    } else {
+      $(".ready-block").removeClass("hide");
+    }
+  }
 } // Hidding Stuff C
 
 { // Posting Stuff S
@@ -202,6 +212,6 @@ $(document).ready( // Document Ready S
     $("#question").html(questionAnswer.userQuestion);
   };
   var postResult = function() {
-    $(".result-content").html("You answered " + userPoints + " questions in " + timePassed + " seconds.\n" + "You are the top x%");
+    $(".result-content").html("You answered " + userPoints + " questions in " + timePassed + " seconds." + "<br>You are the top x%");
   };
 } // Posting Stuff C

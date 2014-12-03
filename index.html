@@ -9,7 +9,7 @@
   <meta name="description" content="10 Seconds of Death">
   <meta name="author" content="Denis">
   <link rel="icon" href="images/skull.png">
-  <title>10 Seconds of Death</title>
+  <title>10 Seconds of Frustration</title>
 
   <!-- jQuery Library-->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -34,7 +34,7 @@
     <!-- title-row S -->
     <div class="title-row row">
       <div class="title-block col-xs-offset-1 col-xs-10">
-        <h1>10 Second of Death</h1>
+        <h1>10 Second of Frustration</h1>
       </div>
     </div>
     <!-- title-row C -->
@@ -42,9 +42,9 @@
     <!-- rt-row S -->
     <div class="rt-row row">
       <div class="rt-block col-xs-offset-1 col-xs-10">
-        <div class="timer-block">
+        <div class="timer-block hide">
           <div>
-            <h1 class="timer-title">Timer</h1>
+            <h1 class="timer-title">Time Left:</h1>
           </div>
           <div>
             <h1 class="timer-counter">10</h1>
@@ -56,6 +56,11 @@
           </div>
           <div>
             <h1 class="result-content"></h1>
+          </div>
+        </div>
+        <div class="ready-block">
+          <div>
+            <h1>~Get Ready~</h1>
           </div>
         </div>
       </div>
@@ -121,6 +126,8 @@
       </div>
     </div>
     <!-- s-row C -->
+    <audio id="dingding" src="audio/dingding.mp3"></audio>
+    <span class= "glyphicon glyphicon-play-circle"></span>
   </div>
 </body>
 
