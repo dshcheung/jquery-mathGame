@@ -29,14 +29,8 @@ $(document).ready( // Document Ready S
         setTimer = setInterval(function() {
           if (timeLeft == 0) {
             stopInterval();
-            hideButton(false);
-            hideAnswerField(true);
-            hideTimer(true);
-            hideResult(false);
+            hideMaster(false, true, true, false, true);
             postResult();
-            // push result
-            // get result 
-            // display result to result-content
           }
           $('.timer-counter').html(timeLeft);
           timePassed++;
@@ -56,11 +50,7 @@ $(document).ready( // Document Ready S
         getSettings();
         genQuestion();
         postQuestion();
-        hideButton(true);
-        hideAnswerField(false);
-        hideTimer(false);
-        hideResult(true);
-        hideReady(true);
+        hideMaster(true, false, false, true, true);
         startInterval();
         $("#answer-input-field").focus();
       });
@@ -69,12 +59,13 @@ $(document).ready( // Document Ready S
     // Keyup answer
     $("#answer-input-field").on("keyup", function() {
       if ($("#answer-input-field").val() == questionAnswer.dataAnswer) {
+        stopInterval();
         $("#answer-input-field").val("");
         $("#dingding")[0].load();
         $("#dingding")[0].play();
-        stopInterval();
         userPoints++;
-        timeLeft++;
+        timeLeft += 2;
+        $('.timer-counter').html(timeLeft);
         genQuestion();
         postQuestion();
         startInterval();
@@ -169,6 +160,13 @@ $(document).ready( // Document Ready S
 } // Question Stuff C
 
 { // Hidding Stuff S
+  var hideMaster = function(boolean1, boolean2, boolean3, boolean4, boolean5) {
+    hideButton(boolean1);
+    hideAnswerField(boolean2);
+    hideTimer(boolean3);
+    hideResult(boolean4);
+    hideReady(boolean5);
+  };
   var hideButton = function(boolean) {
     if (boolean) {
       $(".answer-button-block").addClass("hide");
@@ -211,7 +209,27 @@ $(document).ready( // Document Ready S
   var postQuestion = function() {
     $("#question").html(questionAnswer.userQuestion);
   };
+  var getName = function() {
+    var name = prompt("what's your name?");
+    if (name == "") {
+      name = "anonymous"
+    }
+    return name;
+  }
   var postResult = function() {
-    $(".result-content").html("You answered " + userPoints + " questions in " + timePassed + " seconds." + "<br>You are the top x%");
+    $.ajax({
+      type: "POST",
+      url: "https://stark-eyrie-2329.herokuapp.com/leaders/create",
+      data: {
+        'name': getName(),
+        'score': userPoints
+      },
+      success: function(response) {
+        $(".result-content").html("You answered " + userPoints + " questions in " + timePassed + " seconds." + "<br>You are the top " + (response.ranking * 100).toFixed(2) + "%");
+      },
+      error: function() {
+        $(".result-content").html("You answered " + userPoints + " questions in " + timePassed + " seconds.")
+      }
+    });
   };
 } // Posting Stuff C
