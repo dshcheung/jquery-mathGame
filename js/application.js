@@ -8,6 +8,7 @@ var settingAll; // object
 var settingFunction; // array of enabled functions
 var questionAnswer; // object
 var userPoints; // integer
+var ovalArray;
 
 $(document).ready( // Document Ready S
   function() {
@@ -31,6 +32,7 @@ $(document).ready( // Document Ready S
             stopInterval();
             hideMaster(false, true, true, false, true);
             postResult();
+            runAnimate();
           }
           $('.timer-counter').html(timeLeft);
           timePassed++;
@@ -225,7 +227,7 @@ $(document).ready( // Document Ready S
         'score': userPoints
       },
       success: function(response) {
-        $(".result-content").html("You answered " + userPoints + " questions in " + timePassed + " seconds." + "<br>You are the top " + (response.ranking * 100).toFixed(2) + "%");
+        $(".result-content").html("You answered " + userPoints + " questions in " + timePassed + " seconds." + "<br>You are the better than " + ((1 - response.ranking) * 100).toFixed(2) + "%");
       },
       error: function() {
         $(".result-content").html("You answered " + userPoints + " questions in " + timePassed + " seconds.")
@@ -233,3 +235,49 @@ $(document).ready( // Document Ready S
     });
   };
 } // Posting Stuff C
+
+{ // Animate Stuff S
+  var ovalArray;
+  var numOval;
+  var count;
+  var animateTimer;
+
+  var generateOval = function() {
+    for (var i = 0 + numOval; i < 50 + numOval; i++) {
+      $('body').append('<div class="oval" id="oval' + i + '"></div>');
+      $('#oval' + i).css("-webkit-animation", "rainDrop" + i + " 1s ease-in running")
+      var posLeft = Math.floor(Math.random() * 100) + "%";
+      var posTop1 = Math.floor(Math.random() * 50) + "%";
+      var posTop2 = (Math.floor(Math.random() * 50) + 50) + "%";
+
+      $.keyframe.define({
+        name: 'rainDrop' + i,
+        from: {
+          'top': "-50px",
+          'left': posLeft
+        },
+        to: {
+          'top': posTop2,
+          'left': posLeft
+        }
+      });
+      ovalArray.push("#oval" + i);
+    }
+    numOval += 50;
+    count++;
+    if (count == 6) {
+      clearInterval(animateTimer);
+      setTimeout(function() {
+        $('.oval').remove();
+      }, 2000);
+    }
+  };
+  var runAnimate = function() {
+    ovalArray = [];
+    numOval = 0;
+    count = 0;
+    animateTimer = setInterval(function() {
+      generateOval();
+    }, 100);
+  };
+} // Animate Stuff C
